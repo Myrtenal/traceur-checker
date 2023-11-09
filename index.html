@@ -5,6 +5,31 @@
     <title>Traceur Checker</title>
 </head>
 <body>
-    <h1>Initial Commit</h1>
+    <h1>Traceur Checker</h1>
+    <div>
+        <input type="text" id="robloxid" placeholder="Roblox ID">
+        <input type="submit" id="check" value="Check ID" onclick="checkTraceur()">
+    </div>  
+    <div>
+        <label id="output">Waiting for ID.</label>
+    </div>
+    <script>
+        function checkTraceur() {
+            (async () => {
+                var robloxid = document.getElementById("robloxid").value;
+                response = await fetch(`https://sleepy-plateau-98329-068a1f9c0c71.herokuapp.com/https://groups.roblox.com/v2/users/${robloxid}/groups/roles`);
+                const json = await response.json();
+                const groups = await json.data;
+                for (var group in groups) {
+                    if (groups[group].group.id == 3468086){
+                        if( groups[group].role.name == "Traceur")
+                            document.getElementById("output").innerHTML = "User is a Traceur";
+                        return
+                    }
+                }
+                document.getElementById("output").innerHTML = "User is not a Traceur / Invalid ID";
+            })();
+        }
+    </script>
 </body>
 </html>
