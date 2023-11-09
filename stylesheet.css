@@ -1,0 +1,23 @@
+body{
+    background-color:antiquewhite;
+    font-family: "Lucida Console", "Courier New", monospace;
+    padding: 10px;
+}
+
+h1{
+    text-decoration: underline;
+}
+
+.checker{
+    background-color:lightsteelblue;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 20px;
+}
+
+.output{
+    width: 350px;
+}
